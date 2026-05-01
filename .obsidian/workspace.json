@@ -4,536 +4,27 @@
     "type": "split",
     "children": [
       {
-        "id": "039d73274bdb6441",
+        "id": "e57ac0b7cfe47aa9",
         "type": "tabs",
-        "dimension": 59.95717344753747,
         "children": [
           {
-            "id": "a5d605adb0c4166b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/xp-idea/f.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "f"
-            }
-          },
-          {
-            "id": "5186dcb8c5937f9f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/_new/Event Rate Chance - Poe.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Event Rate Chance - Poe"
-            }
-          },
-          {
-            "id": "73098cd5cbbc3658",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2019-12-11 21.59.43.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2019-12-11 21.59.43"
-            }
-          },
-          {
-            "id": "5f41db16fecab111",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/todo/todo/todo.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "todo"
-            }
-          },
-          {
-            "id": "eb9e82d2818f39e6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/todo/todo/tigerbeetle.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tigerbeetle"
-            }
-          },
-          {
-            "id": "052b8a7080201258",
+            "id": "f1298c8a4ebff785",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
-                "file": "consensus-essence/src/list/raxos/Abstract Paxos Diagram.canvas",
+                "file": "Abstract Paxos Diagram.canvas",
                 "viewState": {
-                  "x": 149.40380563037957,
-                  "y": 3029.1143498044657,
-                  "zoom": -1.4219674118127081
+                  "x": 656.4300616564633,
+                  "y": 93.12559752317816,
+                  "zoom": -0.9449817865690118
                 }
               },
               "icon": "lucide-layout-dashboard",
               "title": "Abstract Paxos Diagram"
             }
-          },
-          {
-            "id": "66aa07c9ed755d5f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "consensus-essence/src/list/raxos/def-01-Graph.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "def-01-Graph"
-            }
-          },
-          {
-            "id": "288816f4c248021e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "consensus-essence/src/list/raxos/def-write.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "def-write"
-            }
-          },
-          {
-            "id": "a98e9e78fe40f268",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "consensus-essence/src/list/raxos/def-MonoHistory.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "def-MonoHistory"
-            }
-          },
-          {
-            "id": "2ced4a2e2ac3bc26",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "consensus-essence/src/list/raxos/def-MonoHistory-Order.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "def-MonoHistory-Order"
-            }
           }
-        ],
-        "currentTab": 5
-      },
-      {
-        "id": "479466cd8e833ec9",
-        "type": "tabs",
-        "dimension": 40.04282655246253,
-        "children": [
-          {
-            "id": "b93161090f1a1310",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "每日动作-2026.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "每日动作-2026"
-            }
-          },
-          {
-            "id": "a1e93c88e95fea3e",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/XP-好好生活/XP-好好生活.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "XP-好好生活"
-            }
-          },
-          {
-            "id": "42b56808408359a0",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "pages/XP-好好生活/XP-TODO.canvas",
-                "viewState": {
-                  "x": -148.45892156571915,
-                  "y": 70.49726977248113,
-                  "zoom": -0.22395462510673125
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-layout-dashboard",
-              "title": "XP-TODO"
-            }
-          },
-          {
-            "id": "a80d21a71608cee1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/_Schedule/_Schedule.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "_Schedule"
-            }
-          },
-          {
-            "id": "2162c353b846c35b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/130-基金投资策略分类/130-基金投资策略分类.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "130-基金投资策略分类"
-            }
-          },
-          {
-            "id": "3de2159475529d08",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/130-基金投资策略分类/130-基金投资策略分类.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "130-基金投资策略分类"
-            }
-          },
-          {
-            "id": "3182fe5fe2179b86",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/160-基金结构分类/160-基金结构分类.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "160-基金结构分类"
-            }
-          },
-          {
-            "id": "d21875328f8103be",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/130-基金投资策略分类/130-基金投资策略分类.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "130-基金投资策略分类"
-            }
-          },
-          {
-            "id": "0674478173c548ef",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/130-基金投资策略分类/04-多因子量化型/04-多因子量化型.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "04-多因子量化型"
-            }
-          },
-          {
-            "id": "69004ac7dad91cc8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/130-基金投资策略分类/04-多因子量化型/多因子vs其他量化策略.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "多因子vs其他量化策略"
-            }
-          },
-          {
-            "id": "400d2102d697882f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/130-基金投资策略分类/04-多因子量化型/指数增强与纯多因子的区别.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "指数增强与纯多因子的区别"
-            }
-          },
-          {
-            "id": "33b28416561afc19",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Fund-Categories-基金分类/130-基金投资策略分类/04-多因子量化型/04-多因子量化型.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "04-多因子量化型"
-            }
-          },
-          {
-            "id": "3dad064e325da226",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Investment-Funds-基金投资.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Investment-Funds-基金投资"
-            }
-          },
-          {
-            "id": "91989fcb5d35c7ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/_new/tzg/递推式的特征根与极限行为.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "递推式的特征根与极限行为"
-            }
-          },
-          {
-            "id": "993911f759861660",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/Holdings-持仓.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Holdings-持仓"
-            }
-          },
-          {
-            "id": "4c84623ae85c826b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/xp-26/xp-26.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "xp-26"
-            }
-          },
-          {
-            "id": "4805ca1afc95c89c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/kuiz/kuiz.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "kuiz"
-            }
-          },
-          {
-            "id": "0ff185bb064a8bae",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/xp-main/xp-main.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "xp-main"
-            }
-          },
-          {
-            "id": "693ee3226be1fe82",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Funds-基金/011066-大成高鑫股票.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "011066-大成高鑫股票"
-            }
-          },
-          {
-            "id": "23a94eeb36c58137",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Finance-Concepts-金融概念/045-Beta-市场敏感度.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "045-Beta-市场敏感度"
-            }
-          },
-          {
-            "id": "377f62508237dada",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/xp-kuiz-2/xp-kuiz-2.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "xp-kuiz-2"
-            }
-          },
-          {
-            "id": "d0a57ef8b19429da",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Investment-Plans-基金理财执行方案/306-未来5年黄金投资分析.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "306-未来5年黄金投资分析"
-            }
-          },
-          {
-            "id": "0b604f3ab7a2250d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/xp-kuiz-2/xp-kuiz-2.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "xp-kuiz-2"
-            }
-          },
-          {
-            "id": "b31ca3351886f9d8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/Stocks-股票.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Stocks-股票"
-            }
-          },
-          {
-            "id": "bbc29a9bfd16ab73",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/002371-北方华创.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "002371-北方华创"
-            }
-          },
-          {
-            "id": "e0014782f371a0e4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/xp-kuiz-2/xp-kuiz-2.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "xp-kuiz-2"
-            }
-          }
-        ],
-        "currentTab": 25
+        ]
       }
     ],
     "direction": "vertical"
@@ -617,8 +108,8 @@
                   "futureSources": []
                 }
               },
-              "icon": "folder",
-              "title": "Root"
+              "icon": "lucide-ghost",
+              "title": "grid-view"
             }
           },
           {
@@ -644,8 +135,8 @@
                 "searchQuery": "",
                 "stashFilePaths": []
               },
-              "icon": "folder-tree",
-              "title": "Explorer"
+              "icon": "lucide-ghost",
+              "title": "explorer-view"
             }
           },
           {
@@ -687,8 +178,8 @@
                   "futureSources": []
                 }
               },
-              "icon": "folder",
-              "title": "pages/xp-info-日常信息"
+              "icon": "lucide-ghost",
+              "title": "grid-view"
             }
           }
         ]
@@ -803,15 +294,17 @@
       "command-palette:Open command palette": false,
       "latex-ocr:LatexOCR": false,
       "meld-encrypt:New encrypted note": false,
-      "meld-encrypt:Convert to or from an Encrypted note": false,
-      "gridexplorer:Open grid view": false,
       "meld-encrypt:Lock and Close all open encrypted notes": false,
+      "meld-encrypt:Convert to or from an Encrypted note": false,
       "meld-encrypt:Encrypt Selection": false,
-      "meld-encrypt:Decrypt at Cursor": false
+      "meld-encrypt:Decrypt at Cursor": false,
+      "gridexplorer:Open grid view": false
     }
   },
-  "active": "052b8a7080201258",
+  "active": "f1298c8a4ebff785",
   "lastOpenFiles": [
+    "web/render-obsidian-canvas.html",
+    "web",
     "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/xp-kuiz-2/xp-kuiz-2.md",
     "每日动作-2026.md",
     "consensus-essence/src/list/raxos/def-MonoHistory-Order.md",
@@ -839,7 +332,6 @@
     "sec/passwdgen/aes-notes/bank/za-香港众安银行-credit.aes",
     "sec/passwdgen/aes-notes/bank/hsbc-香港汇丰银行-credit.aes",
     "sec/passwdgen/aes-notes/bank/citibank-credit.aes",
-    "sec/passwdgen/aes-notes/bank/icbc-中国工商银行-credit.aes",
     "pages/xp-software-软件/Markdown-标记语言/marp(npm).md",
     "pages/archive-movie-看过的电影/2026-01-25-鬼灭之刃-无限城-1-65r.md",
     "pages/xp-info-个人信息/House-住房/413-2302/413-2302.md",
@@ -848,7 +340,6 @@
     "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/688169-石头科技.md",
     "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/300866-安克创新.md",
     "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/300015-爱尔眼科.md",
-    "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/300760-迈瑞医疗.md",
     "pages/xp-info-个人信息/House-住房/413-2302/2302-燃气-表说明书.webp",
     "pages/xp-info-个人信息/House-住房/413-2302/2302-燃气收据.webp",
     "pages/xp-info-个人信息/House-住房/417-507/417-507-model-猫.webp",

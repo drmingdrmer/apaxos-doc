@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Viewer</title>
+    <!-- Add marked library for markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: #f0f0f0;
+            overflow: hidden;
+            cursor: grab;
+        }
+        .canvas-container.grabbing {
+            cursor: grabbing;
+        }
+        .node {
+            position: absolute;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 0;
+            max-width: 300px;
+            cursor: move;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-height: 400px;
+        }
+        .node img {
+            max-width: 100%;
+            height: auto;
+        }
+        .edge {
+            position: absolute;
+            pointer-events: none;
+            z-index: -1;
+            overflow: visible;
+        }
+        .edge svg {
+            position: absolute;
+            overflow: visible;
+            width: 100%;
+            height: 100%;
+        }
+        .edge path {
+            pointer-events: none;
+        }
+        #canvas-wrapper {
+            position: relative;
+            transform-origin: 0 0;
+        }
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+            color: #666;
+        }
+        .error {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: red;
+            text-align: center;
+            max-width: 80%;
+        }
+        .node-loading {
+            color: #666;
+            font-style: italic;
+        }
+        .node-error {
+            color: red;
+            font-size: 0.9em;
+        }
+        /* Basic markdown styles */
+        .markdown {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+        }
+        .markdown h1, .markdown h2, .markdown h3 {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .markdown code {
+            background: #f0f0f0;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .markdown pre {
+            background: #f0f0f0;
+            padding: 1em;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .markdown pre code {
+            background: none;
+            padding: 0;
+        }
+        /* Color scheme for nodes */
+        .node[data-color="1"] { background: #fff5f5; }
+        .node[data-color="2"] { background: #f5fff5; }
+        .node[data-color="3"] { background: #f5f5ff; }
+        .node[data-color="4"] { background: #fffff5; }
+        .node[data-color="5"] { background: #fff5ff; }
+        .node[data-color="6"] { background: #f5ffff; }
+        .node[data-color="1"] .markdown h3 { background: rgba(255,0,0,0.03); }
+        .node[data-color="2"] .markdown h3 { background: rgba(0,255,0,0.03); }
+        .node[data-color="3"] .markdown h3 { background: rgba(0,0,255,0.03); }
+        .node[data-color="4"] .markdown h3 { background: rgba(255,255,0,0.03); }
+        .node[data-color="5"] .markdown h3 { background: rgba(255,0,255,0.03); }
+        .node[data-color="6"] .markdown h3 { background: rgba(0,255,255,0.03); }
+        .node .markdown {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            padding: 0;
+        }
+        .node .markdown h1, 
+        .node .markdown h2, 
+        .node .markdown h3 {
+            margin: 0;
+            padding: 20px 24px;
+            font-size: 20px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.02);
+        }
+        .node .markdown > *:not(h1):not(h2):not(h3) {
+            padding: 20px 24px;
+            margin: 0;
+        }
+        .node .markdown > p:first-of-type {
+            margin-top: 0;
+        }
+        .node .markdown > p:last-child {
+            margin-bottom: 0;
+        }
+        .node .markdown h3 a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .node .markdown h3 a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-container">
+        <div id="canvas-wrapper"></div>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const GITHUB_BRANCH = 'refs/heads/2pcpaxos';
+        const GITHUB_BASE = 'https://raw.githubusercontent.com/drmingdrmer/consensus-essence';
+        const CANVAS_PATH = '/src/list/raxos/Abstract%20Paxos%20Diagram.canvas';
+        const CANVAS_URL = `${GITHUB_BASE}/${GITHUB_BRANCH}${CANVAS_PATH}`;
+
+        // Configure marked options
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+        });
+
+        function getContentUrl(filePath) {
+            const fileName = filePath.split('/').pop();
+            return `${GITHUB_BASE}/${GITHUB_BRANCH}/src/list/raxos/${fileName}`;
+        }
+
+        async function loadMarkdownContent(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.text();
+        }
+
+        async function loadCanvas() {
+            const status = document.getElementById('status');
+            status.className = 'loading';
+            status.textContent = 'Loading canvas...';
+
+            try {
+                const response = await fetch(CANVAS_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const canvasData = await response.json();
+                status.remove();
+                renderCanvas(canvasData);
+            } catch (error) {
+                status.className = 'error';
+                status.innerHTML = `Error loading canvas:<br>${error.message}`;
+                console.error('Error loading canvas:', error);
+            }
+        }
+
+        async function renderNode(node, element) {
+            if (node.type === 'text') {
+                // For text nodes, if there's a title line, format it as a heading
+                const text = node.text.trim();
+                const lines = text.split('\n');
+                const title = lines[0];
+                const content = lines.slice(1).join('\n');
+                
+                element.innerHTML = `
+                    <div class="markdown">
+                        <h3>${marked.parse(title)}</h3>
+                        ${marked.parse(content)}
+                    </div>`;
+                updateConnectedEdges(element);
+                return Promise.resolve();
+            } else if (node.type === 'file') {
+                element.innerHTML = '<div class="node-loading">Loading content...</div>';
+                try {
+                    const contentUrl = getContentUrl(node.file);
+                    const content = await loadMarkdownContent(contentUrl);
+                    // Extract filename without extension for the title
+                    const fileName = node.file.split('/').pop().replace(/\.md$/, '');
+                    const fileUrl = `${GITHUB_BASE}/${GITHUB_BRANCH}/${node.file}`;
+                    element.innerHTML = `
+                        <div class="markdown">
+                            <h3><a href="${fileUrl}" target="_blank" rel="noopener noreferrer">${fileName}</a></h3>
+                            ${marked.parse(content)}
+                        </div>
+                    `;
+                    
+                    // Wait for all images in the node to load
+                    const images = element.getElementsByTagName('img');
+                    const imagePromises = Array.from(images).map(img => {
+                        return new Promise((resolve, reject) => {
+                            if (img.complete) {
+                                resolve();
+                            } else {
+                                img.onload = resolve;
+                                img.onerror = resolve; // Resolve on error too to avoid hanging
+                            }
+                        });
+                    });
+                    
+                    await Promise.all(imagePromises);
+                    // Update edges after content and images are loaded
+                    updateConnectedEdges(element);
+                    return Promise.resolve();
+                } catch (error) {
+                    element.innerHTML = `<div class="node-error">Error loading content: ${error.message}</div>`;
+                    updateConnectedEdges(element);
+                    return Promise.resolve();
+                }
+            }
+            return Promise.resolve();
+        }
+
+        async function renderCanvas(data) {
+            const wrapper = document.getElementById('canvas-wrapper');
+            wrapper.innerHTML = '';
+            const nodes = data.nodes || [];
+            const edges = data.edges || [];
+            const nodeElements = [];
+
+            // Create nodes and edges first
+            nodes.forEach(node => {
+                const nodeElement = document.createElement('div');
+                nodeElement.className = 'node';
+                nodeElement.id = node.id;
+                nodeElement.style.left = `${node.x}px`;
+                nodeElement.style.top = `${node.y}px`;
+                if (node.color) {
+                    nodeElement.setAttribute('data-color', node.color);
+                }
+                
+                makeDraggable(nodeElement);
+                wrapper.appendChild(nodeElement);
+                nodeElements.push({
+                    element: nodeElement,
+                    renderPromise: renderNode(node, nodeElement)
+                });
+            });
+
+            // Create edges
+            edges.forEach(edge => {
+                drawEdge(
+                    edge.fromNode,
+                    edge.toNode,
+                    edge.fromSide || 'right',
+                    edge.toSide || 'left'
+                );
+            });
+
+            // Wait for all nodes to finish rendering in the background
+            try {
+                await Promise.all(nodeElements.map(n => n.renderPromise));
+            } catch (error) {
+                console.error('Error rendering nodes:', error);
+            }
+
+            addZoomPan();
+        }
+
+        function makeDraggable(element) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            
+            element.onmousedown = function(e) {
+                // Don't start drag if clicking on text or links
+                if (e.target.tagName === 'A' || window.getSelection().toString()) {
+                    return;
+                }
+                e.preventDefault();
+                e.stopPropagation(); // Prevent canvas pan when dragging node
+                
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            };
+
+            function elementDrag(e) {
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                element.style.top = (element.offsetTop - pos2) + "px";
+                element.style.left = (element.offsetLeft - pos1) + "px";
+                updateConnectedEdges(element);
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+        function drawEdge(fromId, toId, fromSide = 'right', toSide = 'left') {
+            const container = document.createElement('div');
+            container.className = 'edge';
+            
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.style.position = 'absolute';
+            svg.style.width = '100%';
+            svg.style.height = '100%';
+            svg.style.overflow = 'visible';
+            svg.style.top = '0';
+            svg.style.left = '0';
+            
+            container.setAttribute('data-from', fromId);
+            container.setAttribute('data-to', toId);
+            container.setAttribute('data-from-side', fromSide);
+            container.setAttribute('data-to-side', toSide);
+            
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('stroke', '#666');
+            path.setAttribute('stroke-width', '2');
+            path.setAttribute('fill', 'none');
+            path.setAttribute('marker-end', 'url(#arrowhead)');
+            
+            // Add arrowhead marker
+            const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+            marker.setAttribute('id', 'arrowhead');
+            marker.setAttribute('markerWidth', '10');
+            marker.setAttribute('markerHeight', '7');
+            marker.setAttribute('refX', '9');
+            marker.setAttribute('refY', '3.5');
+            marker.setAttribute('orient', 'auto');
+            
+            const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            polygon.setAttribute('points', '0 0, 10 3.5, 0 7');
+            polygon.setAttribute('fill', '#666');
+            
+            marker.appendChild(polygon);
+            defs.appendChild(marker);
+            svg.appendChild(defs);
+            svg.appendChild(path);
+            container.appendChild(svg);
+            document.getElementById('canvas-wrapper').appendChild(container);
+            
+            return container;
+        }
+
+        function getNodeAnchor(node, side) {
+            const rect = {
+                x: parseInt(node.style.left),
+                y: parseInt(node.style.top),
+                width: node.offsetWidth,
+                height: node.offsetHeight
+            };
+            
+            switch (side) {
+                case 'top':
+                    return { x: rect.x + rect.width / 2, y: rect.y };
+                case 'bottom':
+                    return { x: rect.x + rect.width / 2, y: rect.y + rect.height };
+                case 'left':
+                    return { x: rect.x, y: rect.y + rect.height / 2 };
+                case 'right':
+                    return { x: rect.x + rect.width, y: rect.y + rect.height / 2 };
+                default:
+                    return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 };
+            }
+        }
+
+        function updateEdge(container) {
+            const from = document.getElementById(container.getAttribute('data-from'));
+            const to = document.getElementById(container.getAttribute('data-to'));
+            
+            if (!from || !to) {
+                console.warn('Missing nodes for edge:', {
+                    fromId: container.getAttribute('data-from'),
+                    toId: container.getAttribute('data-to')
+                });
+                return;
+            }
+
+            const fromSide = container.getAttribute('data-from-side');
+            const toSide = container.getAttribute('data-to-side');
+
+            const start = getNodeAnchor(from, fromSide);
+            const end = getNodeAnchor(to, toSide);
+
+            // Position the edge container to cover the entire area
+            const minX = Math.min(start.x, end.x);
+            const minY = Math.min(start.y, end.y);
+            const maxX = Math.max(start.x, end.x);
+            const maxY = Math.max(start.y, end.y);
+            
+            container.style.left = `${minX}px`;
+            container.style.top = `${minY}px`;
+            container.style.width = `${maxX - minX + 100}px`;
+            container.style.height = `${maxY - minY + 100}px`;
+
+            // Calculate control points for the curve
+            const dx = end.x - start.x;
+            const dy = end.y - start.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const curvature = Math.min(distance * 0.4, 150);
+
+            let c1 = { x: start.x, y: start.y };
+            let c2 = { x: end.x, y: end.y };
+
+            switch (fromSide) {
+                case 'bottom': c1.y += curvature; break;
+                case 'top': c1.y -= curvature; break;
+                case 'right': c1.x += curvature; break;
+                case 'left': c1.x -= curvature; break;
+            }
+
+            switch (toSide) {
+                case 'bottom': c2.y += curvature; break;
+                case 'top': c2.y -= curvature; break;
+                case 'right': c2.x += curvature; break;
+                case 'left': c2.x -= curvature; break;
+            }
+
+            // Draw the path relative to the container position
+            const path = container.querySelector('path');
+            const d = `M ${start.x - minX} ${start.y - minY} ` +
+                     `C ${c1.x - minX} ${c1.y - minY}, ` +
+                     `${c2.x - minX} ${c2.y - minY}, ` +
+                     `${end.x - minX} ${end.y - minY}`;
+            path.setAttribute('d', d);
+        }
+
+        function updateConnectedEdges(node) {
+            const edges = document.querySelectorAll('.edge');
+            edges.forEach(edge => {
+                if (edge.getAttribute('data-from') === node.id ||
+                    edge.getAttribute('data-to') === node.id) {
+                    updateEdge(edge);
+                }
+            });
+        }
+
+
+        function addZoomPan() {
+            const wrapper = document.getElementById('canvas-wrapper');
+            const container = document.querySelector('.canvas-container');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // Constants for zoom control
+            const MIN_SCALE = 0.1;
+            const MAX_SCALE = 5;
+            const ZOOM_SPEED = 0.01; // Increased from 0.001 for faster zoom
+
+            // Pan functionality
+            container.addEventListener('mousedown', (e) => {
+                if (e.target === container || e.target === wrapper) {
+                    isDragging = true;
+                    container.classList.add('grabbing');
+                    startX = e.clientX - translateX;
+                    startY = e.clientY - translateY;
+                }
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    translateX = e.clientX - startX;
+                    translateY = e.clientY - startY;
+                    wrapper.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                container.classList.remove('grabbing');
+            });
+
+            // Zoom functionality
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                
+                // Get mouse position relative to the container
+                const rect = container.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate the point on the canvas where we're zooming
+                const x = (mouseX - translateX) / scale;
+                const y = (mouseY - translateY) / scale;
+
+                // Calculate new scale with smoother zoom
+                const zoomDelta = -e.deltaY * ZOOM_SPEED;
+                const newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale * (1 + zoomDelta)));
+
+                // Only update if scale actually changed
+                if (newScale !== scale) {
+                    // Calculate new translation to keep the mouse point fixed
+                    const newTranslateX = mouseX - (x * newScale);
+                    const newTranslateY = mouseY - (y * newScale);
+
+                    // Update values
+                    scale = newScale;
+                    translateX = newTranslateX;
+                    translateY = newTranslateY;
+
+                    // Apply the new transform
+                    wrapper.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                }
+            });
+        }
+
+        // Load the canvas when the page loads
+        loadCanvas();
+
+    </script>
+</body>
+</html>

@@ -2,6 +2,10 @@
   "recentFiles": [
     {
       "basename": "Abstract Paxos Diagram",
+      "path": "Abstract Paxos Diagram.canvas"
+    },
+    {
+      "basename": "Abstract Paxos Diagram",
       "path": "consensus-essence/src/list/raxos/Abstract Paxos Diagram.canvas"
     },
     {
@@ -195,10 +199,6 @@
     {
       "basename": "TODOs",
       "path": "pages/TODOs.md"
-    },
-    {
-      "basename": "北京出发·夏日躺平式出行指南（2026版）",
-      "path": "pages/_new/北京出发·夏日躺平式出行指南（2026版）.md"
     }
   ],
   "omittedPaths": [],
