@@ -1,0 +1,10 @@
+{
+  "monospaceFontFamily": "Monaco",
+  "textFontFamily": "",
+  "cssTheme": "",
+  "enabledCssSnippets": [
+    "disable-all-animation",
+    "no-wrap-for-code-block",
+    "compact-file-explorer"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "styles": {
+    "pages/xp-software-软件/rust": {
+      "textColor": "#940000"
+    },
+    "pages/xp-software-软件": {
+      "textColor": "#680085"
+    }
+  },
+  "presets": {
+    "rust": {
+      "backgroundColor": "#610000",
+      "textColor": "#ffffff",
+      "isBold": true,
+      "isItalic": false,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    }
+  },
+  "presetOrder": []
+}

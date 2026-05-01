@@ -1,0 +1,55 @@
+/* Disable all animations */
+* {
+  animation: none !important;
+  transition: none !important;
+  transition-delay: 0s !important;
+  transition-duration: 0s !important;
+}
+
+/* Simplify folder open/close effect */
+.nav-folder-children {
+  /* Remove sliding animation */
+  transition: none !important;
+  
+  /* Remove any height transitions */
+  height: auto !important;
+  max-height: none !important;
+  
+  /* Make folders simply appear/disappear */
+  display: block;
+}
+
+/* Ensure collapsed folders actually hide content */
+.nav-folder.is-collapsed > .nav-folder-children {
+  display: none;
+}
+
+/* Fix Files panel scroll shaking */
+.nav-files-container {
+  /* Disable smooth scrolling */
+  scroll-behavior: auto !important;
+  
+  /* Disable scroll anchoring which tries to maintain position */
+  overflow-anchor: none !important;
+  
+  /* Prevent browser from adjusting scroll */
+  overscroll-behavior: none !important;
+  
+  /* Force hardware acceleration to reduce visual glitches */
+  transform: translateZ(0);
+  
+  /* Disable scroll snap which might cause jumps */
+  scroll-snap-type: none !important;
+}
+
+/* Prevent any automatic scrolling when selecting items */
+.nav-file.is-active, .nav-folder.is-active {
+  scroll-margin: 0 !important;
+  scroll-padding: 0 !important;
+}
+
+/* Stop any possible JavaScript-based scrolling */
+.workspace-leaf-content[data-type="file-explorer"] {
+  /* Additional property to block auto-scroll behaviors */
+  contain: strict;
+}

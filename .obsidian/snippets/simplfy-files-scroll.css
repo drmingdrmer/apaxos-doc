@@ -1,0 +1,41 @@
+/* Disable all animations */
+* {
+  animation: none !important;
+  transition: none !important;
+  transition-delay: 0s !important;
+  transition-duration: 0s !important;
+}
+
+/* Simplify folder open/close effect */
+.nav-folder-children {
+  /* Remove sliding animation */
+  transition: none !important;
+  
+  /* Remove any height transitions */
+  height: auto !important;
+  max-height: none !important;
+  
+  /* Make folders simply appear/disappear */
+  display: block;
+}
+
+/* Ensure collapsed folders actually hide content */
+.nav-folder.is-collapsed > .nav-folder-children {
+  display: none;
+}
+
+/* Prevent scroll position changes when opening/closing folders */
+.nav-files-container {
+  scroll-behavior: auto !important;
+}
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-files-container {
+  /* Prevent any automatic scrolling animations */
+  scroll-behavior: auto !important;
+  overflow-anchor: none;
+}
+
+/* Prevent any scroll-into-view behaviors */
+.nav-file.is-active, .nav-folder.is-active {
+  scroll-margin: 0 !important;
+}

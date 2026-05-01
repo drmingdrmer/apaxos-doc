@@ -1,0 +1,25 @@
+/* Disable all animations */
+* {
+  animation: none !important;
+  transition: none !important;
+  transition-delay: 0s !important;
+  transition-duration: 0s !important;
+}
+
+/* Simplify folder open/close effect */
+.nav-folder-children {
+  /* Remove sliding animation */
+  transition: none !important;
+  
+  /* Remove any height transitions */
+  height: auto !important;
+  max-height: none !important;
+  
+  /* Make folders simply appear/disappear */
+  display: block;
+}
+
+/* Ensure collapsed folders actually hide content */
+.nav-folder.is-collapsed > .nav-folder-children {
+  display: none;
+}

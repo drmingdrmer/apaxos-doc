@@ -1,0 +1,36 @@
+{
+  "cascadeColors": true,
+  "colorBackground": true,
+  "palette": [
+    {
+      "id": "JP80newG7LF6wucPWf3Aj",
+      "name": "red",
+      "value": "#ec8989"
+    },
+    {
+      "id": "KsOP6KLUNnGdTZcWR9Iht",
+      "name": "light purple",
+      "value": "#d999db"
+    },
+    {
+      "id": "H8U6mSYxW1IlgSicXbo2L",
+      "name": "light blue",
+      "value": "#ccceff"
+    },
+    {
+      "id": "Zi4ZT_pD43GBqY_wNnyvt",
+      "name": "",
+      "value": "#ffffff"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "pages/INTP-xiaohongshu-小红书",
+      "color": "H8U6mSYxW1IlgSicXbo2L"
+    },
+    {
+      "path": "pages/Rust-Lang",
+      "color": "JP80newG7LF6wucPWf3Aj"
+    }
+  ]
+}

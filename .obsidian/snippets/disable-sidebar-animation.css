@@ -1,0 +1,21 @@
+.workspace-split.mod-left-split, .workspace-split.mod-right-split {
+	transition: var(--anim-duration-none) !important;
+}
+
+/* 禁用文件浏览器中文件夹展开/折叠的动画 */
+.nav-folder-children {
+  transition: none !important;
+}
+
+.nav-folder.is-collapsed .nav-folder-children {
+  animation: none !important;
+}
+
+/* 如果上面的代码不完全解决问题，可以尝试添加这些 */
+.tree-item-children {
+  transition: none !important;
+}
+
+.tree-item-self {
+  transition: none !important;
+}

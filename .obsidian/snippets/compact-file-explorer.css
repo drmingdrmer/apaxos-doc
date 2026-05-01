@@ -1,0 +1,11 @@
+.nav-file-title,
+.nav-folder-title {
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+  min-height: unset !important;
+}
+
+.nav-file-title-content,
+.nav-folder-title-content {
+  line-height: 1.2 !important;
+}
