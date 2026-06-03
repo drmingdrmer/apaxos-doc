@@ -23,8 +23,51 @@
               "icon": "lucide-layout-dashboard",
               "title": "Abstract Paxos Diagram"
             }
+          },
+          {
+            "id": "9053401f8dea1b55",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "558f2051b51eb188",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "def-Time.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "def-Time"
+            }
+          },
+          {
+            "id": "6cf150c9a8566de4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2d-consensus.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2d-consensus"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -57,7 +100,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "path:\"pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/\" 长信中证科",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -108,8 +151,8 @@
                   "futureSources": []
                 }
               },
-              "icon": "lucide-ghost",
-              "title": "grid-view"
+              "icon": "folder",
+              "title": "Root"
             }
           },
           {
@@ -135,8 +178,8 @@
                 "searchQuery": "",
                 "stashFilePaths": []
               },
-              "icon": "lucide-ghost",
-              "title": "explorer-view"
+              "icon": "folder-tree",
+              "title": "Explorer"
             }
           },
           {
@@ -178,8 +221,8 @@
                   "futureSources": []
                 }
               },
-              "icon": "lucide-ghost",
-              "title": "grid-view"
+              "icon": "folder",
+              "title": "pages/xp-info-日常信息"
             }
           }
         ]
@@ -301,8 +344,16 @@
       "gridexplorer:Open grid view": false
     }
   },
-  "active": "f1298c8a4ebff785",
+  "active": "2230f6d44aa8e687",
   "lastOpenFiles": [
+    "论共识算法在高时间维度中与空间维度的转换以及狭义相对论的涌现.md",
+    "protocol-All.md",
+    "2d-consensus.md",
+    "raxos.md",
+    "code-Distributed-read-write.md",
+    "def-Time.md",
+    "Untitled.md",
+    "Abstract Paxos Diagram.canvas",
     "web/render-obsidian-canvas.html",
     "web",
     "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Holdings-持仓/xp-kuiz-2/xp-kuiz-2.md",
@@ -331,15 +382,8 @@
     "sec/passwdgen/aes-notes/bank/hk-移民局-小程序.aes",
     "sec/passwdgen/aes-notes/bank/za-香港众安银行-credit.aes",
     "sec/passwdgen/aes-notes/bank/hsbc-香港汇丰银行-credit.aes",
-    "sec/passwdgen/aes-notes/bank/citibank-credit.aes",
     "pages/xp-software-软件/Markdown-标记语言/marp(npm).md",
     "pages/archive-movie-看过的电影/2026-01-25-鬼灭之刃-无限城-1-65r.md",
-    "pages/xp-info-个人信息/House-住房/413-2302/413-2302.md",
-    "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/Stocks-股票.md",
-    "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/300124-汇川技术.md",
-    "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/688169-石头科技.md",
-    "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/300866-安克创新.md",
-    "pages/Economics-Finance-Politics-经济金融与政治/Investment-Funds-基金投资/Stocks-股票/300015-爱尔眼科.md",
     "pages/xp-info-个人信息/House-住房/413-2302/2302-燃气-表说明书.webp",
     "pages/xp-info-个人信息/House-住房/413-2302/2302-燃气收据.webp",
     "pages/xp-info-个人信息/House-住房/417-507/417-507-model-猫.webp",
@@ -357,7 +401,6 @@
     "pages/xp-idea/AI-发展/AI发展的影响.canvas",
     "pages/English-learning/obsidian-mobile/Untitled 1.canvas",
     "pages/English-learning/obsidian-mobile/apaxos/foo/Abstract Paxos Diagram.canvas",
-    "pages/English-learning/obsidian-mobile/Untitled.canvas",
-    "pages/English-learning/obsidian-mobile/apaxos/Abstract Paxos Diagram.canvas"
+    "pages/English-learning/obsidian-mobile/Untitled.canvas"
   ]
 }

@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "2d-consensus",
+      "path": "2d-consensus.md"
+    },
+    {
+      "basename": "protocol-All",
+      "path": "protocol-All.md"
+    },
+    {
+      "basename": "raxos",
+      "path": "raxos.md"
+    },
+    {
+      "basename": "code-Distributed-read-write",
+      "path": "code-Distributed-read-write.md"
+    },
+    {
+      "basename": "def-Time",
+      "path": "def-Time.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "Untitled.md"
+    },
+    {
       "basename": "Abstract Paxos Diagram",
       "path": "Abstract Paxos Diagram.canvas"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "phone-number-电话",
       "path": "pages/xp-info-个人信息/phone-number-电话.md"
-    },
-    {
-      "basename": "房子信息-wifi-门锁",
-      "path": "pages/xp-info-个人信息/房子信息-wifi-门锁.md"
-    },
-    {
-      "basename": "2302-燃气-表说明书",
-      "path": "pages/xp-info-个人信息/House-住房/413-2302/2302-燃气-表说明书.webp"
-    },
-    {
-      "basename": "2302-燃气收据",
-      "path": "pages/xp-info-个人信息/House-住房/413-2302/2302-燃气收据.webp"
-    },
-    {
-      "basename": "_Schedule",
-      "path": "pages/_Schedule/_Schedule.md"
-    },
-    {
-      "basename": "417-507-model-猫",
-      "path": "pages/xp-info-个人信息/House-住房/417-507/417-507-model-猫.webp"
-    },
-    {
-      "basename": "TODOs",
-      "path": "pages/TODOs.md"
     }
   ],
   "omittedPaths": [],
